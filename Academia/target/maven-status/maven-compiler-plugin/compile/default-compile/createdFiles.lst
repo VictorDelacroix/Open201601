@@ -1,0 +1,11 @@
+com\escuela\academia\Profesor.class
+com\escuela\academia\Curso.class
+com\escuela\academia\CursoHorario.class
+com\escuela\academia\AlumnoCurso.class
+com\escuela\academia\Administrador.class
+com\escuela\academia\CursoHorarioId.class
+com\escuela\academia\Horario.class
+com\escuela\academia\AlumnoCursoId.class
+com\escuela\academia\Alumno.class
+com\escuela\academia\Apoderado.class
+com\escuela\academia\Trabajador.class

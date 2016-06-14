@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/06/2016 10:32:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.escuela.academia.Horario" table="horario" catalog="academia" optimistic-lock="version">
+        <id name="idhorario" type="java.lang.Integer">
+            <column name="IDHorario" />
+            <generator class="identity" />
+        </id>
+        <property name="codigo" type="string">
+            <column name="Codigo" length="30" />
+        </property>
+        <property name="dia" type="date">
+            <column name="Dia" length="10" />
+        </property>
+        <property name="horaInicio" type="time">
+            <column name="HoraInicio" length="8" />
+        </property>
+        <property name="horaFin" type="time">
+            <column name="HoraFin" length="8" />
+        </property>
+        <set name="cursoHorarios" table="curso_horario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDHorario" not-null="true" />
+            </key>
+            <one-to-many class="com.escuela.academia.CursoHorario" />
+        </set>
+    </class>
+</hibernate-mapping>
