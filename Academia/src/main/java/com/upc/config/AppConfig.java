@@ -20,14 +20,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("com.upc")
+@ComponentScan("com.escuela")
 public class AppConfig {
 
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[]{"com.upc"});
+        sessionFactory.setPackagesToScan(new String[]{"com.escuela"});
         sessionFactory.setHibernateProperties(additionalProperties());
 
         return sessionFactory;

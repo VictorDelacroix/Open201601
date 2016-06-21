@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <!--
+        
+        create database Academia;
+use Academia;
+create table Apoderado(IDApoderado int auto_increment primary key,Usuario varchar(30),Clave varchar(30),Nombre varchar(30),Apellido varchar(30),DNI varchar(30),Edad int);
+create table Administrador(IDAdministrador int auto_increment primary key,Codigo varchar(30),Usuario varchar(30),Clave varchar(30),Nombre varchar(30),Apellido varchar(30),DNI varchar(30),Sueldo int);
+create table Alumno(IDAlumno int auto_increment primary key,Codigo varchar(30),Usuario varchar(30),Clave varchar(30),Nombre varchar(30),Apellido varchar(30),DNI varchar(30),Edad int,IDApoderado int,IDTrabajador int);
+create table Trabajador(IDTrabajador int auto_increment primary key,Codigo varchar(30),Usuario varchar(30),Clave varchar(30),Nombre varchar(30),Apellido varchar(30),IDAdministrador int);
+create table Alumno_Curso(IDAlumno int not null,IDCurso int not null,Nota1 double(5,2),Nota2 double(5,2),Nota3 double(5,2),Nota4 double(5,2),Estado varchar(30));
+create table Curso(IDCurso int auto_increment primary key,Codigo varchar(30),Nombre varchar(30),Precio double(6,2),Vacantes int,IDProfesor int);
+create table Profesor(IDProfesor int auto_increment primary key,Usuario varchar(30),Clave varchar(30),Nombre varchar(30),Apellido varchar(30),Sueldo double(6,2));
+create table Curso_Horario(IDCurso int not null,IDHorario int not null,Ambiente varchar(30));
+create table Horario(IDHorario int auto_increment primary key,Codigo varchar(30),Dia Date,HoraInicio time,HoraFin time);
+
+
+alter table Alumno_Curso add constraint PK_Alumno_Curso primary key(IDAlumno,IDCurso);
+alter table Curso_Horario add constraint PK_Curso_Horario primary key(IDCurso,IDHorario);
+
+alter table Trabajador add constraint FK_Trabajador_Administrador foreign key(IDAdministrador) references Administrador(IDAdministrador);
+alter table Alumno add constraint FK_Alumno_Apoderado foreign key(IDApoderado) references Apoderado(IDApoderado);
+alter table Alumno add constraint FK_Alumno_Trabajador foreign key(IDTrabajador) references Trabajador(IDTrabajador);
+alter table Alumno_Curso add constraint FK_AlumnoC_Alumno foreign key(IDAlumno) references Alumno(IDAlumno);
+alter table Alumno_Curso add constraint FK_AlumnoC_Curso foreign key(IDCurso) references Curso(IDCurso);
+alter table Curso add constraint FK_Curso_Profesor foreign key(IDProfesor) references Profesor(IDProfesor);
+alter table Curso_Horario add constraint FK_CursoH_Curso foreign key(IDCurso) references Curso(IDCurso);
+alter table Curso_Horario add constraint FK_CursoH_Horario foreign key(IDHorario) references Horario(IDHorario);
+
+CREATE UNIQUE INDEX Index_Alumno ON Alumno (IDAlumno);
+CREATE INDEX Index_Alumno_Curso ON Alumno_Curso(IDAlumno,IDCurso);
+
+INSERT INTO Curso (Codigo,Nombre,Precio,Vacantes,IDProfesor) values ('ma666','Mate',5.5,30,1);
+INSERT INTO Profesor (Usuario,Clave,Nombre,Apellido) values ('P001','123''Ian','Ian',60);
+INSERT INTO Alumno (Codigo,Usuario,Clave,Nombre,Apellido) values ('a001','a001','a001','Ian','Ian');
+        
+        -->
+    </body>
+</html>

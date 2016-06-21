@@ -26,8 +26,8 @@ public class UsuarioDAOTest {
         ApplicationContext context
                 = new AnnotationConfigApplicationContext(AppConfig.class);
         UsuarioDAO usuarioDAO = context.getBean(UsuarioDAO.class);
-        usuarioDAO.autenticar(null);
         
+        assertTrue(usuarioDAO.autenticar(1));
     }
     
 }

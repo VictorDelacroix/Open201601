@@ -31,11 +31,10 @@ public class UsuarioDAO {
 
     static final org.slf4j.Logger LOG = LoggerFactory.getLogger(UsuarioDAO.class);
 
-    public boolean autenticar(Alumno usuario) {
+    public boolean autenticar(int ID) {
        Query query = sessionFactory.getCurrentSession().
-                createQuery("FROM Usuario U WHERE U.email =:pemail and U.clave=:pclave");
-       query.setParameter("pemail", usuario.getCodigo());
-       query.setParameter("pclave", usuario.getClave());
+                createQuery("FROM Alumno A WHERE A.idalumno =:ID");
+       query.setParameter("ID", ID);
        return !query.list().isEmpty();
     }
    
