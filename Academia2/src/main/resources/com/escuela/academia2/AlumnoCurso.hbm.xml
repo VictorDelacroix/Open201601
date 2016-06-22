@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/06/2016 05:24:11 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.escuela.academia2.AlumnoCurso" table="alumno_curso" catalog="academia" optimistic-lock="version">
+        <composite-id name="id" class="com.escuela.academia2.AlumnoCursoId">
+            <key-property name="idalumno" type="int">
+                <column name="IDAlumno" />
+            </key-property>
+            <key-property name="idcurso" type="int">
+                <column name="IDCurso" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="alumno" class="com.escuela.academia2.Alumno" update="false" insert="false" fetch="select">
+            <column name="IDAlumno" not-null="true" />
+        </many-to-one>
+        <many-to-one name="curso" class="com.escuela.academia2.Curso" update="false" insert="false" fetch="select">
+            <column name="IDCurso" not-null="true" />
+        </many-to-one>
+        <property name="nota1" type="java.lang.Double">
+            <column name="Nota1" precision="5" />
+        </property>
+        <property name="nota2" type="java.lang.Double">
+            <column name="Nota2" precision="5" />
+        </property>
+        <property name="nota3" type="java.lang.Double">
+            <column name="Nota3" precision="5" />
+        </property>
+        <property name="nota4" type="java.lang.Double">
+            <column name="Nota4" precision="5" />
+        </property>
+        <property name="estado" type="string">
+            <column name="Estado" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

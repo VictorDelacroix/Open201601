@@ -44,3 +44,9 @@ alter table Curso_Horario add constraint FK_CursoH_Horario foreign key(IDHorario
 
 CREATE UNIQUE INDEX Index_Alumno ON Alumno (IDAlumno);
 CREATE INDEX Index_Alumno_Curso ON Alumno_Curso(IDAlumno,IDCurso);
+
+INSERT INTO Profesor (Usuario,Clave,Nombre,Apellido) values ('P001','123''Ian','Ian',60);
+
+INSERT INTO Curso (Codigo,Nombre,Precio,Vacantes,IDProfesor) values ('ma666','Mate',5.5,30,1);
+
+INSERT INTO Alumno (Codigo,Usuario,Clave,Nombre,Apellido) values ('a001','a001','a001','Ian','Ian');

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/06/2016 05:24:11 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.escuela.academia2.Curso" table="curso" catalog="academia" optimistic-lock="version">
+        <id name="idcurso" type="java.lang.Integer">
+            <column name="IDCurso" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="profesor" class="com.escuela.academia2.Profesor" fetch="select">
+            <column name="IDProfesor" />
+        </many-to-one>
+        <property name="codigo" type="string">
+            <column name="Codigo" length="30" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="30" />
+        </property>
+        <property name="precio" type="java.lang.Double">
+            <column name="Precio" precision="6" />
+        </property>
+        <property name="vacantes" type="java.lang.Integer">
+            <column name="Vacantes" />
+        </property>
+        <set name="cursoHorarios" table="curso_horario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCurso" not-null="true" />
+            </key>
+            <one-to-many class="com.escuela.academia2.CursoHorario" />
+        </set>
+        <set name="alumnoCursos" table="alumno_curso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCurso" not-null="true" />
+            </key>
+            <one-to-many class="com.escuela.academia2.AlumnoCurso" />
+        </set>
+    </class>
+</hibernate-mapping>
